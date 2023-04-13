@@ -1,3 +1,2 @@
 # GAMF WEB1 PROJEKT
- első feladat
-valami
+Készítette: Adameczné Fekete Andrea és Solti Soma
