@@ -1,17 +1,18 @@
 <?php
 $ablakcim = array(
-    'cim' => 'Panel oldal',
+    'cim' => 'Panelprojekt',
 );
 
 $fejlec = array(
     'kepforras' => 'kep1.jpg',
-	'cim' => 'Panelos oldal',
+	'kepalt' => 'lakás',
+	'cim' => 'Panelprojekt',
 	'motto' => ''
 );
 
 $lablec = array(
     'copyright' => 'Copyright '.date("Y").'.',
-    'oldal' => 'Panelos oldal'
+    'oldal' => 'Panelprojekt'
 );
 
 $oldalak = array(
@@ -20,6 +21,7 @@ $oldalak = array(
 	'lakotelepek' => array('fajl' => 'lakotelepek', 'szoveg' => 'Lakótelepek Budapesten'),
 	'lakaskereso' => array('fajl' => 'lakaskereso', 'szoveg' => 'Lakáskereső'),
 	'otletfeltolto' => array('fajl' => 'otletfelto', 'szoveg' => 'Ötlet feltöltés'),
+	'otletfeltolto2' => array('fajl' => 'otletfelto', 'szoveg' => 'Ötlet feltöltés2'),
 	'kapcsolat' => array('fajl' => 'kapcsolat', 'szoveg' => 'Kapcsolat'),
 );
 
