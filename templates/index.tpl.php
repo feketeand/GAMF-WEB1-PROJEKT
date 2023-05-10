@@ -21,9 +21,6 @@
     <header>
     <section /*id="sidebar"*/>
         <div class="inner">
-            <ul class="actions2">
-                <li><a href="belepes.html" jet.Depots class="button">Belépés/Regisztráció</a></li>
-            </ul>
             <nav>
 
                 <ul>
