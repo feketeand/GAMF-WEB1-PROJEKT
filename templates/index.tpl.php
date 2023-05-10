@@ -36,8 +36,6 @@
     </section>
     </header>
     
-
-    <div id="wrapper">
     <div id="content">
         <?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
     </div>
