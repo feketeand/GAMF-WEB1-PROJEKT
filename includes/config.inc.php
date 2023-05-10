@@ -21,7 +21,6 @@ $oldalak = array(
 	'lakotelepek' => array('fajl' => 'lakotelepek', 'szoveg' => 'Lakótelepek Budapesten'),
 	'lakaskereso' => array('fajl' => 'lakaskereso', 'szoveg' => 'Lakáskereső'),
 	'otletfeltolto' => array('fajl' => 'otletfelto', 'szoveg' => 'Ötlet feltöltés'),
-	'otletfeltolto2' => array('fajl' => 'otletfelto', 'szoveg' => 'Ötlet feltöltés2'),
 	'kapcsolat' => array('fajl' => 'kapcsolat', 'szoveg' => 'Kapcsolat'),
 );
 
