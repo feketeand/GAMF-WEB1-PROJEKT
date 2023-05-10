@@ -12,7 +12,7 @@ if(isset($_POST['felhasznalo']) && isset($_POST['jelszo'])) {
         $sth->execute(array(':felhasznaloNev' => $_POST['felhasznaloNev'], ':jelszo' => $_POST['jelszo']));
         $row = $sth->fetch(PDO::FETCH_ASSOC);
         if($row) {
-            $_SESSION['csn'] = $row['vezeteknev']; $_SESSION['un'] = $row['keresztnev']; $_SESSION['login'] = $_POST['felhasznalo'];
+            $_SESSION['csn'] = $row['vezeteknev']; $_SESSION['un'] = $row['keresztnev']; $_SESSION['login'] = $_POST['felhasznaloNev'];
         }
     }
     catch (PDOException $e) {
