@@ -19,23 +19,22 @@
 
 <body class="is-preload">
     <header>
-    <section /*id="sidebar"*/>
+        <section /*id="sidebar" * />
         <div class="inner">
             <nav>
-
-                <ul>
+            <ul class="nav">
                     <?php foreach ($oldalak as $url => $oldal) { ?>
-                        <li<?= (($oldal == $keres) ? ' class="active"' : '') ?>>
-                            <a href="index.php<?= ($url == '/') ? '' : ('?oldal=' . $url) ?>">
+                        <li class="nav-item"<?= (($oldal == $keres) ? ' class="active"' : '') ?>>
+                            <a class="nav-link" href="index.php<?= ($url == '/') ? '' : ('?oldal=' . $url) ?>">
                                 <?= $oldal['szoveg'] ?></a>
                             </li>
                         <?php } ?>
                 </ul>
             </nav>
         </div>
-    </section>
+        </section>
     </header>
-    
+
     <div id="content">
         <?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
     </div>
