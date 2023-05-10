@@ -28,11 +28,12 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <?php foreach ($oldalak as $url => $oldal) { ?>
-                        <li class="nav-item" <?= (($oldal == $keres) ? ' class="active"' : '') ?>>
-                            <a class="nav-link" href="index.php<?= ($url == '/') ? '' : ('?oldal=' . $url) ?>">
-                                <?= $oldal['szoveg'] ?></a>
-                        </li>
-                    <?php } ?>
+					<?php if(! isset($_SESSION['login']) && $oldal['menun'][0] || isset($_SESSION['login']) && $oldal['menun'][1]) { ?>
+						<li<?= (($oldal == $keres) ? ' class="active"' : '') ?>>
+						<a href="<?= ($url == '/') ? '.' : ('?oldal=' . $url) ?>">
+						<?= $oldal['szoveg'] ?></a>
+						</li>
+					<?php } ?>
                 </ul>
                 </div>
             </nav>
