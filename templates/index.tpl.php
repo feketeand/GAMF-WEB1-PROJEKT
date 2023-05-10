@@ -19,17 +19,22 @@
 
 <body class="is-preload">
     <header>
-        <section /*id="sidebar" * />
+        <section /*id="sidebar"/*>
         <div class="inner">
-            <nav>
-            <ul class="nav">
+            <nav class="navbar navbar-expand-sm navbar-dark" id="menu">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
                     <?php foreach ($oldalak as $url => $oldal) { ?>
-                        <li class="nav-item"<?= (($oldal == $keres) ? ' class="active"' : '') ?>>
+                        <li class="nav-item" <?= (($oldal == $keres) ? ' class="active"' : '') ?>>
                             <a class="nav-link" href="index.php<?= ($url == '/') ? '' : ('?oldal=' . $url) ?>">
                                 <?= $oldal['szoveg'] ?></a>
-                            </li>
-                        <?php } ?>
+                        </li>
+                    <?php } ?>
                 </ul>
+                </div>
             </nav>
         </div>
         </section>
