@@ -22,6 +22,8 @@ $oldalak = array(
 	'lakaskereso' => array('fajl' => 'lakaskereso', 'szoveg' => 'Lakáskereső'),
 	'otletfeltolto' => array('fajl' => 'otletfelto', 'szoveg' => 'Ötlet feltöltés'),
 	'kapcsolat' => array('fajl' => 'kapcsolat', 'szoveg' => 'Kapcsolat'),
+	'belepes' => array('fajl' => 'belep2', 'szoveg' => 'Belépés/Regisztráció'),
+	'kilepes' => array('fajl' => 'kilep2', 'szoveg' => 'Kilépés')
 );
 
 $hiba_oldal = array ('fajl' => '404', 'szoveg' => 'A keresett oldal nem található!');
