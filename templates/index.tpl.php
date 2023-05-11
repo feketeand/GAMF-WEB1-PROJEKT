@@ -33,7 +33,8 @@
 						<a href="<?= ($url == '/') ? '.' : ('?oldal=' . $url) ?>">
 						<?= $oldal['szoveg'] ?></a>
 						</li>
-					<?php } ?>
+					<?php } 
+                    } ?>
                 </ul>
                 </div>
             </nav>
