@@ -32,5 +32,3 @@ $oldalak = array(
 $hiba_oldal = array ('fajl' => '404', 'szoveg' => 'A keresett oldal nem található!');
 ?>
 
-$hiba_oldal = array ('fajl' => '404', 'szoveg' => 'A keresett oldal nem található!');
-?>
