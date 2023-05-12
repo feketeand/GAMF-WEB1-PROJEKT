@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title><?= $ablakcim['cim'] . ((isset($ablakcim['mottó'])) ? ('|' . $ablakcim['mottó']) : '') ?></title>
+    <title><?= $ablakcim['cim']?></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
@@ -19,26 +19,26 @@
 
 <body class="is-preload">
     <header>
-        <section /*id="sidebar"/*>
-        <div class="inner">
-            <nav class="navbar navbar-expand-sm navbar-dark" id="menu">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <?php foreach ($oldalak as $url => $oldal) { ?>
-					<?php if(! isset($_SESSION['login']) && $oldal['menun'][0] || isset($_SESSION['login']) && $oldal['menun'][1]) { ?>
-						<li<?= (($oldal == $keres) ? ' class="active"' : '') ?>>
-						<a href="<?= ($url == '/') ? '.' : ('?oldal=' . $url) ?>">
-						<?= $oldal['szoveg'] ?></a>
-						</li>
-					<?php } 
-                    } ?>
-                </ul>
-                </div>
-            </nav>
-        </div>
+        <section>
+            <div class="inner">
+                <nav class="navbar navbar-expand-sm navbar-dark" id="menu">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav">
+                            <?php foreach ($oldalak as $url => $oldal) { ?>
+                                <?php if (!isset($_SESSION['login']) && $oldal['menun'][0] || isset($_SESSION['login']) && $oldal['menun'][1]) { ?>
+                                    <li<?= (($oldal == $keres) ? ' class="active"' : '') ?>>
+                                        <a href="<?= ($url == '/') ? '.' : ('?oldal=' . $url) ?>">
+                                            <?= $oldal['szoveg'] ?></a>
+                                        </li>
+                                <?php }
+                            } ?>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </section>
     </header>
 

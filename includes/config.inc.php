@@ -7,7 +7,6 @@ $fejlec = array(
 	'kepforras' => 'kep1.jpg',
 	'kepalt' => 'lakás',
 	'cim' => 'Panelprojekt',
-	'motto' => ''
 );
 
 $lablec = array(
@@ -24,7 +23,6 @@ $oldalak = array(
 	'lakotelepek' => array('fajl' => 'lakotelepek', 'szoveg' => 'Lakótelepek Budapesten', 'menun' => array(1, 1)),
 	'lakaskereso' => array('fajl' => 'lakaskereso', 'szoveg' => 'Lakáskereső', 'menun' => array(1, 1)),
 	'otletfeltolto' => array('fajl' => 'otletfelto', 'szoveg' => 'Ötlet feltöltés', 'menun' => array(1, 1)),
-	'otletfeltolto2' => array('fajl' => 'otletfelto', 'szoveg' => 'Ötlet feltöltés2', 'menun' => array(1, 1)),
 	'kapcsolat' => array('fajl' => 'kapcsolat', 'szoveg' => 'Kapcsolat', 'menun' => array(1, 1)),
 	'belep' => array('fajl' => 'belep', 'szoveg' => '', 'menun' => array(0, 0)),
 	'regisztral' => array('fajl' => 'regisztral', 'szoveg' => '', 'menun' => array(0, 0))

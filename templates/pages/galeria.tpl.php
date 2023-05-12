@@ -23,14 +23,13 @@ closedir($olvaso);
 
 <body>
     <section id="intro" class="wrapper style1 fullscreen fade-up">
-        <div id="galeria">
-            <h1>Galéria</h1>
+        <div id="galeria"> 
+            <h1 class="inner">Galéria</h1>
             <?php
             foreach ($kepek as $fajl => $datum) {
             ?>
-                <a href="<?php echo $MAPPA . $fajl ?>">
-                    <img src="<?php echo $MAPPA . $fajl ?>" alt="" data-position="center center" width="486" height="500">
-                </a>
+                <!--<a href="<?php echo $MAPPA . $fajl ?>">-->
+                    <img src="<?php echo $MAPPA . $fajl ?>" alt="" data-position="center center" width="490" height="500">
             <?php
             }
             ?>
