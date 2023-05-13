@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2023. Máj 09. 21:00
+-- Létrehozás ideje: 2023. Máj 13. 19:41
 -- Kiszolgáló verziója: 8.0.31
 -- PHP verzió: 8.0.26
 
@@ -24,33 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `erkelytipus`
---
-
-DROP TABLE IF EXISTS `erkelytipus`;
-CREATE TABLE IF NOT EXISTS `erkelytipus` (
-  `erkelytipusID` int NOT NULL,
-  `erkelyNev` varchar(15) NOT NULL,
-  PRIMARY KEY (`erkelytipusID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
-
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `felhasznalo`
 --
 
 DROP TABLE IF EXISTS `felhasznalo`;
 CREATE TABLE IF NOT EXISTS `felhasznalo` (
   `felhasznaloID` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `felhasznaloNev` varchar(10) NOT NULL default '',
-  `vezeteknev` varchar(20) NOT NULL default '',
-  `keresztnev` varchar(20) NOT NULL default '',
-  `irsz` int NOT NULL default '0',
-  `email` varchar(20) NOT NULL default '',
+  `felhasznaloNev` varchar(10) NOT NULL DEFAULT '',
+  `vezeteknev` varchar(20) NOT NULL DEFAULT '',
+  `keresztnev` varchar(20) NOT NULL DEFAULT '',
+  `irsz` int NOT NULL DEFAULT '0',
+  `email` varchar(20) NOT NULL DEFAULT '',
   `regDatum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `jelszo` varchar(8) NOT NULL,
-  PRIMARY KEY (`felhasznaloID`)  
+  PRIMARY KEY (`felhasznaloID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
@@ -67,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `galeria` (
   PRIMARY KEY (`sorszam`),
   KEY `kepID` (`kepID`),
   KEY `otletID` (`otletID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -78,9 +65,9 @@ CREATE TABLE IF NOT EXISTS `galeria` (
 DROP TABLE IF EXISTS `idoszak`;
 CREATE TABLE IF NOT EXISTS `idoszak` (
   `idoszakID` int NOT NULL,
-  `idoszak` varchar(20) NOT NULL,
+  `idoszak` varchar(20) COLLATE utf8mb4_hungarian_ci NOT NULL,
   PRIMARY KEY (`idoszakID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -94,11 +81,11 @@ CREATE TABLE IF NOT EXISTS `kepek` (
   `tipusID` int NOT NULL,
   `felhasznaloID` int NOT NULL,
   `feltoltDatum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `megjegyzes` text NOT NULL,
+  `megjegyzes` text COLLATE utf8mb4_hungarian_ci NOT NULL,
   PRIMARY KEY (`kepID`),
   UNIQUE KEY `kepID` (`kepID`),
   KEY `tipusID` (`tipusID`,`felhasznaloID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -109,9 +96,9 @@ CREATE TABLE IF NOT EXISTS `kepek` (
 DROP TABLE IF EXISTS `keptipus`;
 CREATE TABLE IF NOT EXISTS `keptipus` (
   `keptipusID` int NOT NULL,
-  `keptipusNev` varchar(10) NOT NULL,
+  `keptipusNev` varchar(10) COLLATE utf8mb4_hungarian_ci NOT NULL,
   PRIMARY KEY (`keptipusID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `keptipus`
@@ -138,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `lakastipus` (
   `alaprajzID` int NOT NULL,
   PRIMARY KEY (`lakasTipusID`),
   KEY `erkelytipusID` (`erkelytipusID`,`alaprajzID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -149,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `lakastipus` (
 DROP TABLE IF EXISTS `lakotelep`;
 CREATE TABLE IF NOT EXISTS `lakotelep` (
   `lakotelepID` int NOT NULL,
-  `ltpNev` varchar(50) NOT NULL,
+  `ltpNev` varchar(50) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `kerulet` int NOT NULL,
   `terkepID` int NOT NULL,
   `idoszakID` int NOT NULL,
@@ -157,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `lakotelep` (
   `fokepID` int NOT NULL,
   PRIMARY KEY (`lakotelepID`),
   KEY `terkepID` (`terkepID`,`idoszakID`,`fokepID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -173,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `ltp-lakastipus` (
   `sorszam` int NOT NULL,
   PRIMARY KEY (`sorszam`),
   KEY `lakotelepID` (`lakotelepID`,`lakastipusID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -186,13 +173,13 @@ CREATE TABLE IF NOT EXISTS `otlet` (
   `otletID` int NOT NULL,
   `felhasznaloID` int NOT NULL,
   `lakastipusID` int NOT NULL,
-  `megnevezes` varchar(50) NOT NULL,
+  `megnevezes` varchar(50) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `alaprajzValt` tinyint(1) NOT NULL,
   `alaprajzID` int NOT NULL,
-  `leiras` text NOT NULL,
+  `leiras` text COLLATE utf8mb4_hungarian_ci NOT NULL,
   PRIMARY KEY (`otletID`),
   KEY `felhasznaloID` (`felhasznaloID`,`alaprajzID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -203,10 +190,10 @@ CREATE TABLE IF NOT EXISTS `otlet` (
 DROP TABLE IF EXISTS `terkep`;
 CREATE TABLE IF NOT EXISTS `terkep` (
   `terkepID` int NOT NULL,
-  `terkepLink` varchar(40) NOT NULL,
+  `terkepLink` varchar(40) COLLATE utf8mb4_hungarian_ci NOT NULL,
   PRIMARY KEY (`terkepID`),
   UNIQUE KEY `terkepID` (`terkepID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -222,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `varos` (
   PRIMARY KEY (`irsz`),
   UNIQUE KEY `irsz_UNIQUE` (`irsz`),
   KEY `kerulet` (`kerulet`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `varos`

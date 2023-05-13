@@ -1,29 +1,23 @@
-   
-<section class="wrapper style2 spotlights">  
-    <form class="urlap" action = "belep2.php" method = "post">
+    <form action = "?oldal=belep" method = "post">
       <fieldset>
-        <h3>Bejelentkezés<h3>
-        <br>                    
-          <input type="text" name="felhasznaloNev" placeholder="felhasználó" required><br>
-          <input type="password" name="jelszo" placeholder="jelszó" required><br><br>
-          <input type="submit" name="belepes" value="Belépés" href="index.php?belep">                               
-        <br>&nbsp;
-      </fieldset>
-    </form>
-
-    
-    <form action = "regisztral2.php" method = "post">
-      <fieldset>
-        <legend>Regisztrálja magát, ha még nem felhasználó!</legend>
-        <h3>Regisztráció</h3>
+        <legend>Bejelentkezés</legend>
         <br>
-        <input type="text" name="vezeteknev" placeholder="vezetéknév" required><br>
-        <input type="text" name="keresztnev" placeholder="keresztnév" required><br>
-        <input type="text" name="felhasznaloNev" placeholder="felhasználó név" required><br>
-        <input type="password" name="jelszo" placeholder="jelszó" required><br>
-        <input type="submit" name="regisztracio" value="Regisztráció" href="index.php?regisztral">
+        <input type="text" name="felhasznalo" placeholder="felhasználó" required><br><br>
+        <input type="password" name="jelszo" placeholder="jelszó" required><br><br>
+        <input type="submit" name="belepes" value="Belépés">
         <br>&nbsp;
       </fieldset>
     </form>
-  
-</section>
+    <h3>Regisztrálja magát, ha még nem felhasználó!</h2>
+    <form action = "?oldal=regisztral" method = "post">
+      <fieldset>
+        <legend>Regisztráció</legend>
+        <br>
+        <input type="text" name="vezeteknev" placeholder="vezetéknév" required><br><br>
+        <input type="text" name="utonev" placeholder="utónév" required><br><br>
+        <input type="text" name="felhasznalo" placeholder="felhasználói név" required><br><br>
+        <input type="password" name="jelszo" placeholder="jelszó" required><br><br>
+        <input type="submit" name="regisztracio" value="Regisztráció">
+        <br>&nbsp;
+      </fieldset>
+    </form>

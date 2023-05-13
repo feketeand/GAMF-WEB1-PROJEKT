@@ -33,3 +33,4 @@ $hiba_oldal = array('fajl' => '404', 'szoveg' => 'A keresett oldal nem találhat
 $MAPPA = 'images/';
 $TIPUSOK = array('.jpg', '.png');
 $MEDIATIPUSOK = array('image/jpeg', 'image/png');
+?>
