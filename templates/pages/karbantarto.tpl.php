@@ -4,8 +4,7 @@
     			<legend>Új lakótelep hozzáadása</legend>
     			<br>
     			<label>Lakótelep neve: <input type="text" name="ltp_nev" id="ltp_nev" placeholder="Lakótelep neve" required><br><br>
-    				<br>
-    				<p class="hiba" id="hibaLtp"></p>
+    				<p class="text-danger"id="hibaLtp"></p>
     				<label>Kerület: <input type="text" name="kerulet" placeholder="Kerület(1-23)" required><br><br>
     					<label>Építési időszak: <select name="idoszak">
     							<option value="0" selected disabled>Válasszon!</option>
