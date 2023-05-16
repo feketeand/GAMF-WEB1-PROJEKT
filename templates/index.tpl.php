@@ -46,7 +46,7 @@
     </header>
 
     <div id="content">
-		<?php if(isset($_SESSION['login'])) { ?>Bejlentkezve: <strong><?= $_SESSION['csn']." ".$_SESSION['un']." (".$_SESSION['login'].")" ?></strong><?php } ?>
+		<?php if(isset($_SESSION['login'])) { ?>Bejelentkezve: <strong><?= $_SESSION['csn']." ".$_SESSION['un']." (".$_SESSION['login'].")" ?></strong><?php } ?>
         <?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
     </div>
 
