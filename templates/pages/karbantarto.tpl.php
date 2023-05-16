@@ -1,4 +1,4 @@
-    <h3>Karbantartó</h2>
+    <h3>Karbantartó</h2>	
     <form action = "?oldal=ltpmentes" method = "post">
       <fieldset>
         <legend>Új lakótelep hozzáadása</legend>
@@ -24,15 +24,20 @@
         <br>
         <label>Alapterület: <input type="text" name="meret" placeholder="Méret (m2)" ><br><br>
         <label>Szobák száma: <input type="number" name="szobaszam" placeholder="Szobaszám" ><br><br>
-		<label>Erkély típusa:  <select name="erkely">
-			<option value="0" selected disabled>Válasszon!</option>
-			<option value="Nincs">Nincs</option>
+		<label>Erkély típusa:  <select name="erkely">			
+			<option value="Nincs" selected>Nincs</option>
 			<option value="Francia erkély">Francia erkély</option>
 			<option value="Erkély">Erkély</option>
 			<option value="Lodzsa">Lodzsa</option>			
 		</select><br><br>
-		<label>Külön WC <input type="checkbox" name="kulonWC"><br><br>
-		<label>Ablakos konyha <input type="checkbox" name="ablakosKonyha" ><br><br>
+		<label>Külön WC: <select name="kulonWC">
+			<option value="nem">Nem</option>
+			<option value="igen">Igen</option>
+		</select><br><br>		
+		<label>Ablakos konyha: <select name="ablakosKonyha">
+			<option value="nem"selected>Nem</option>
+			<option value="igen">Igen</option>
+		</select><br><br>		
         <label>Alaprajz sorszáma: <input type="text" name="alaprajzID" placeholder="alaprajz sorszáma" >				
 		<br><br>       
         <input type="submit" name="mentes" value="Mentés">
@@ -40,6 +45,6 @@
       </fieldset>	  
     </form>
 	<form action= "alaprajzok.php" target="_blank">
-		<input type="submit" value= "Alaprajzok" > </button>
+		<input type="submit" value= "Alaprajzok" >
 	</form>
 	
