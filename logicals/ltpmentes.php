@@ -4,9 +4,8 @@ if(isset($_POST['ltp_nev']) && isset($_POST['kerulet'])&& isset($_POST['idoszak'
         // Kapcsolódás
         $dbh = new PDO('mysql:host=localhost;dbname=paneldb', 'root', '',
                         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-        $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
+        $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');        
         
-        // Létezik már a felhasználói név?
         $sqlSelect = "select lakotelepID from lakotelep where ltpNev = :be";
         $sth = $dbh->prepare($sqlSelect);
         $sth->execute(array(':be' => $_POST['ltp_nev']));
