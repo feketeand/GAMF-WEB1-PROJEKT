@@ -1,5 +1,5 @@
 header {
-    border-radius: 0 px;    
+    border-radius: 0 px;
     padding: 0 px;
     margin: 0 px;
 }
@@ -34,7 +34,8 @@ nav ul {
 }
 
 nav ul li {
-    padding: 0px 15px;;
+    padding: 0px 15px;
+    ;
 }
 
 nav ul li.active {
@@ -42,23 +43,23 @@ nav ul li.active {
 }
 
 nav ul a {
-    float:left;
-	padding: 0.25em 1em;
-	margin: 0.25em 0 0.25em 1em;
-	color: #DDD;
-	text-decoration: none;	
+    float: left;
+    padding: 0.25em 1em;
+    margin: 0.25em 0 0.25em 1em;
+    color: #DDD;
+    text-decoration: none;
 }
 
 div#content {
     clear: left;
     padding: 10px;
-    color: #FF0E00;    
+    color: #FF0E00;
     font-weight: bold;
     background-color: #EEE;
-	width: 100%;
+    width: 100%;
 }
 
-div#content img{
+div#content img {
     float: right;
     width: 100%;
     height: auto;
@@ -69,10 +70,14 @@ div#content img{
 
 footer {
     display: table-cell;
-	border-radius: 0px;
+    border-radius: 0px;
     margin: 0px;
-	width: 100%;
+    width: 100%;
     padding: 5px 20px;
     background-color: #CC99FF;
-	vertical-align: bottom;
+    vertical-align: bottom;
+}
+
+.hiba {
+    color: darkred;
 }
