@@ -1,7 +1,6 @@
 <?php
-if
 
-if(isset($_POST['meret']) && isset($_POST['szobaszam']) && isset($_POST['erkely'])&& isset($_POST['alaprajzID'])&&isset($_POST['kulonWC'])&&isset($_POST['ablakosKonyha']) {
+if(isset($_POST['meret']) && isset($_POST['szobaszam']) && isset($_POST['erkely'])&& isset($_POST['alaprajzID'])&&isset($_POST['kulonWC'])&&isset($_POST['ablakosKonyha'])) {
     try {
         // Kapcsolódás
         $dbh = new PDO('mysql:host=localhost;dbname=paneldb', 'root', '',
