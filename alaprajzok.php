@@ -40,7 +40,7 @@ if (isset($_POST['kuldes'])) {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Galéria</title>
+    <title>Alaprajzok</title>
 </head>
 
 <body>
@@ -69,11 +69,7 @@ if (isset($_POST['kuldes'])) {
             ?>
         </div>
     </section>
-	function close_window() {
-  if (confirm("Close Window?")) {
-    close();
-  }
-}
+<script src="alaprajz.js"></script>
 </body>
 
 </html
