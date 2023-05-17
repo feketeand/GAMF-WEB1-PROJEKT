@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2023. Máj 13. 19:41
+-- Létrehozás ideje: 2023. Máj 17. 08:49
 -- Kiszolgáló verziója: 8.0.31
 -- PHP verzió: 8.0.26
 
@@ -24,21 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `felhasznalo`
+-- Tábla szerkezet ehhez a táblához `felhasznalok`
 --
 
-DROP TABLE IF EXISTS `felhasznalo`;
-CREATE TABLE IF NOT EXISTS `felhasznalo` (
-  `felhasznaloID` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `felhasznaloNev` varchar(10) NOT NULL DEFAULT '',
-  `vezeteknev` varchar(20) NOT NULL DEFAULT '',
-  `keresztnev` varchar(20) NOT NULL DEFAULT '',
-  `irsz` int NOT NULL DEFAULT '0',
-  `email` varchar(20) NOT NULL DEFAULT '',
-  `regDatum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `jelszo` varchar(8) NOT NULL,
-  PRIMARY KEY (`felhasznaloID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+DROP TABLE IF EXISTS `felhasznalok`;
+CREATE TABLE IF NOT EXISTS `felhasznalok` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `csaladi_nev` varchar(45) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
+  `uto_nev` varchar(45) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
+  `bejelentkezes` varchar(12) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
+  `jelszo` varchar(40) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `felhasznalok`
+--
+
+INSERT INTO `felhasznalok` (`id`, `csaladi_nev`, `uto_nev`, `bejelentkezes`, `jelszo`) VALUES
+(1, 'ba', 'ba', 'baba', 'b78b647728101ba462182b4c7e5b2ca57b9f5a99');
 
 -- --------------------------------------------------------
 
@@ -116,16 +120,23 @@ INSERT INTO `keptipus` (`keptipusID`, `keptipusNev`) VALUES
 
 DROP TABLE IF EXISTS `lakastipus`;
 CREATE TABLE IF NOT EXISTS `lakastipus` (
-  `lakasTipusID` int NOT NULL,
+  `lakasTipusID` int NOT NULL AUTO_INCREMENT,
   `meret` int NOT NULL,
   `szobaszam` int NOT NULL,
-  `kulonWC` tinyint(1) NOT NULL,
-  `ablakosKonyha` tinyint(1) NOT NULL,
-  `erkelytipusID` int NOT NULL,
+  `kulonWC` varchar(5) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `ablakosKonyha` varchar(5) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `erkelytipus` varchar(20) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `alaprajzID` int NOT NULL,
-  PRIMARY KEY (`lakasTipusID`),
-  KEY `erkelytipusID` (`erkelytipusID`,`alaprajzID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+  PRIMARY KEY (`lakasTipusID`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `lakastipus`
+--
+
+INSERT INTO `lakastipus` (`lakasTipusID`, `meret`, `szobaszam`, `kulonWC`, `ablakosKonyha`, `erkelytipus`, `alaprajzID`) VALUES
+(3, 40, 1, 'igen', 'nem', 'Francia erkély', 70),
+(2, 50, 3, 'Igen', 'Nem', 'Erkély', 1);
 
 -- --------------------------------------------------------
 
@@ -135,16 +146,23 @@ CREATE TABLE IF NOT EXISTS `lakastipus` (
 
 DROP TABLE IF EXISTS `lakotelep`;
 CREATE TABLE IF NOT EXISTS `lakotelep` (
-  `lakotelepID` int NOT NULL,
+  `lakotelepID` int NOT NULL AUTO_INCREMENT,
   `ltpNev` varchar(50) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `idoszak` varchar(20) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `kerulet` int NOT NULL,
   `terkepID` int NOT NULL,
-  `idoszakID` int NOT NULL,
   `leiras` int NOT NULL,
   `fokepID` int NOT NULL,
   PRIMARY KEY (`lakotelepID`),
-  KEY `terkepID` (`terkepID`,`idoszakID`,`fokepID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+  KEY `terkepID` (`terkepID`,`fokepID`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `lakotelep`
+--
+
+INSERT INTO `lakotelep` (`lakotelepID`, `ltpNev`, `idoszak`, `kerulet`, `terkepID`, `leiras`, `fokepID`) VALUES
+(1, 'Rózsakerti lakótelep', '80-as évek', 22, 0, 0, 0);
 
 -- --------------------------------------------------------
 
