@@ -30,5 +30,5 @@
 	//header("Location: .");
 	//}
 ?>
-<img src="<?php echo $MAPPA2 . $result[kepNev] ?>" alt="<?php echo $result['name'] ?>" data-position="center center" width="490" height="500">
+<img src="<?php echo $MAPPA2 . $result['kepNev'] ?>" alt="<?php echo $result['name'] ?>" data-position="center center" width="490" height="500">
    
