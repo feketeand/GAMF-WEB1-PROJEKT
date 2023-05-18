@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2023. Máj 17. 08:49
+-- Létrehozás ideje: 2023. Máj 18. 13:45
 -- Kiszolgáló verziója: 8.0.31
 -- PHP verzió: 8.0.26
 
@@ -35,14 +35,15 @@ CREATE TABLE IF NOT EXISTS `felhasznalok` (
   `bejelentkezes` varchar(12) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
   `jelszo` varchar(40) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `felhasznalok`
 --
 
 INSERT INTO `felhasznalok` (`id`, `csaladi_nev`, `uto_nev`, `bejelentkezes`, `jelszo`) VALUES
-(1, 'ba', 'ba', 'baba', 'b78b647728101ba462182b4c7e5b2ca57b9f5a99');
+(1, 'ba', 'ba', 'baba', 'b78b647728101ba462182b4c7e5b2ca57b9f5a99'),
+(2, 'na', 'na', 'nana', '893a6a6789d8aef157ac0615ac3855587daaac07');
 
 -- --------------------------------------------------------
 
@@ -82,6 +83,7 @@ CREATE TABLE IF NOT EXISTS `idoszak` (
 DROP TABLE IF EXISTS `kepek`;
 CREATE TABLE IF NOT EXISTS `kepek` (
   `kepID` int NOT NULL AUTO_INCREMENT,
+  `kepNev` varchar(10) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `tipusID` int NOT NULL,
   `felhasznaloID` int NOT NULL,
   `feltoltDatum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -155,14 +157,15 @@ CREATE TABLE IF NOT EXISTS `lakotelep` (
   `fokepID` int NOT NULL,
   PRIMARY KEY (`lakotelepID`),
   KEY `terkepID` (`terkepID`,`fokepID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `lakotelep`
 --
 
 INSERT INTO `lakotelep` (`lakotelepID`, `ltpNev`, `idoszak`, `kerulet`, `terkepID`, `leiras`, `fokepID`) VALUES
-(1, 'Rózsakerti lakótelep', '80-as évek', 22, 0, 0, 0);
+(1, 'Rózsakerti lakótelep', '80-as évek', 22, 0, 0, 0),
+(2, 'Gazdagréti lakótelep', '70-as évek', 11, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -212,6 +215,37 @@ CREATE TABLE IF NOT EXISTS `terkep` (
   PRIMARY KEY (`terkepID`),
   UNIQUE KEY `terkepID` (`terkepID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `uzenetek`
+--
+
+DROP TABLE IF EXISTS `uzenetek`;
+CREATE TABLE IF NOT EXISTS `uzenetek` (
+  `uzenetID` int NOT NULL AUTO_INCREMENT,
+  `felhasznalo` varchar(16) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `datum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `iras` text COLLATE utf8mb4_hungarian_ci NOT NULL,
+  PRIMARY KEY (`uzenetID`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `uzenetek`
+--
+
+INSERT INTO `uzenetek` (`uzenetID`, `felhasznalo`, `datum`, `iras`) VALUES
+(1, 'vendeg', '0000-00-00 00:00:00', 'bababab'),
+(2, 'vendeg', '0000-00-00 00:00:00', 'bababab'),
+(3, 'vendeg', '0000-00-00 00:00:00', 'bababab'),
+(4, 'vendeg', '0000-00-00 00:00:00', 'bababab'),
+(5, 'vendeg', '0000-00-00 00:00:00', 'chgíydghc'),
+(6, 'vendeg', '0000-00-00 00:00:00', 'chgíydghc'),
+(7, 'baba', '0000-00-00 00:00:00', 'sfghsfgsf'),
+(8, 'baba', '2023-05-18 10:28:02', 'asdfasd'),
+(9, 'baba', '2023-05-18 12:40:12', 'sdfghdf'),
+(10, 'vendeg', '2023-05-18 12:47:29', 'uzenet');
 
 -- --------------------------------------------------------
 
