@@ -15,7 +15,7 @@
         $sqlSelect = "select * from otlet where lakastipusID= :x";
 		$sth = $dbh->prepare($sqlSelect);
         //$sth->execute(array(':mint' => $_POST['minter'], ':maxt' => $_POST['maxter'], ':szmin' => $_POST['szobamin'], ':szmax' => $_POST['szobamax'], ':erk' => $_POST['erkely'], ':kW' => $_POST['kulonWC'], ':aK' => $_POST['ablakosKonyha']));
-        $sth->execute(array(':x=>$lakasID'));
+        $sth->execute(array(':x'=>$lakasID));
 		$res = $sth->fetchAll();				
 			
     }
