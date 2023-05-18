@@ -42,7 +42,7 @@ $gomb = $_POST['gomb'] ?? false;
         <p>Várjuk a jobbnál jobb ötleteket, észrevételeket az oldallal kapcsolatban</p>
         <div class="split style1">
             <section>
-                <form method="post">
+                <form action = "?oldal=uzenet" method="post">
 
                     <div class="fields">
                         <div class="field half">
@@ -65,7 +65,11 @@ $gomb = $_POST['gomb'] ?? false;
                         <li><a href="" class="button submit" name="gomb">Üzenet küldése</a></li>
                     </ul>
                 </form>
-            </section>
+            </section>			
+			
+			
+			
+			
             <?php if ($gomb && $hiba) {
                 echo $sikertelen;
             } else if ($gomb && !$hiba) {
