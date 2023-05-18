@@ -30,6 +30,7 @@ $oldalak = array(
 	'tipmentes' => array('fajl' => 'tipmentes', 'szoveg' => '', 'menun' => array(0, 0)),
 	'alaprajzok' => array('fajl' => 'alaprajzok', 'szoveg' => '', 'menun' => array(0, 0)),
 	'otletek' => array('fajl' => 'otletek', 'szoveg' => '', 'menun' => array(0, 0)),
+	'otlet' => array('fajl' => 'otlet', 'szoveg' => '', 'menun' => array(0, 0)),
 	'uzenetek' => array('fajl' => 'uzenetek', 'szoveg' => 'Üzenetek', 'menun' => array(0, 1)),
 	'uzenet' => array('fajl' => 'uzenet', 'szoveg' => '', 'menun' => array(0, 0))
 );
