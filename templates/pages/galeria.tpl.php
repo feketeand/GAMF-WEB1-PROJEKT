@@ -45,7 +45,7 @@ if (isset($_POST['kuldes'])) {
 </head>
 
 <body>
-    <section id="intro" class="wrapper style1 fullscreen fade-up">
+    <section>
         <div id="galeria">
             <h1 class="inner">Galéria</h1>
             <h2>Feltöltés a galériába:</h2>
