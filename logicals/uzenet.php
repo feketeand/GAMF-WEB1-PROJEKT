@@ -5,6 +5,7 @@ if (isset($_SESSION['login'])){
 else{
 	$nev="vendeg";
 }
+date_default_timezone_set('Europe/Budapest');
 $datumi= date('Y-m-d H:i:s');
 if(isset($_POST['message'])){
     try {
