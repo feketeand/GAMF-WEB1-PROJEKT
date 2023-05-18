@@ -40,8 +40,8 @@
                     <th>ID</th>
                     <th>Méret (m2)</th>
                     <th>Szobák száma</th>					
-                    <th>külön WC</th>
-					<th>ablakos konyha</th>
+                    <th>Külön WC</th>
+					<th>Ablakos konyha</th>
 					<th>Erkély</th>
 					<th>AlaprajzID</th>
 					<th>Ötletek</th>					

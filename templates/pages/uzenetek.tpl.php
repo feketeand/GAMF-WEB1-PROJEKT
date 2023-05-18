@@ -1,6 +1,5 @@
 <body>
 <?php
-//if(isset($_POST['minter']) && isset($_POST['maxter'])&& isset($_POST['szobamin'])&&isset($_POST['szobamax'])&&isset($_POST['erkely'])&&isset($_POST['kulonWC'])&&isset($_POST['ablakosKonyha'])) {
     
 
 	try {
@@ -10,10 +9,8 @@
 						
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
                 
-        //$sqlSelect = "select * from lakastipus where meret >= :mint and meret<= :maxt and szobaszam>=:szmin and szobaszam<= szmax and erkelytipus=:erk and kulonWC=:kW and ablakosKonyha=:aK";
         $sqlSelect = "select * from uzenetek order by datum desc";
 		$sth = $dbh->prepare($sqlSelect);
-        //$sth->execute(array(':mint' => $_POST['minter'], ':maxt' => $_POST['maxter'], ':szmin' => $_POST['szobamin'], ':szmax' => $_POST['szobamax'], ':erk' => $_POST['erkely'], ':kW' => $_POST['kulonWC'], ':aK' => $_POST['ablakosKonyha']));
         $sth->execute();
 		$result = $sth->fetchAll();				
 			
@@ -22,20 +19,15 @@
         $errormessage = "Hiba: ".$e->getMessage();
 		print_r($e);		
     }
-	
-	
 
-//else {
-	//header("Location: .");
-	//}
 ?>   
 <h1>Üzenetek listája</h1>     
             <table>                
                 <tr>
-                    <th>üzenet ID</th>
-                    <th>beküldő neve</th>                    				
-                    <th>dátum+idő</th>
-					<th>üzenet</th>						
+                    <th>Üzenet ID</th>
+                    <th>Beküldő neve</th>                    				
+                    <th>Dátum+idő</th>
+					<th>Üzenet</th>					
                 </tr>				
                 <?php for($i=0;$i<count($result);$i++){?>
 				<tr>

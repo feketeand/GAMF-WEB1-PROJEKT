@@ -20,7 +20,6 @@ $oldalak = array(
 	'galeria' => array('fajl' => 'galeria', 'szoveg' => 'Galéria', 'menun' => array(1, 1)),
 	'lakasok' => array('fajl' => 'lakasok', 'szoveg' => 'Lakástípusok', 'menun' => array(1, 1)),
 	'lakasszuro' => array('fajl' => 'lakasszuro', 'szoveg' => 'Lakástípus kereső', 'menun' => array(0, 0)),
-	'otletfeltolto' => array('fajl' => 'otletfelto', 'szoveg' => 'Ötlet feltöltés', 'menun' => array(1, 1)),
 	'kapcsolat' => array('fajl' => 'kapcsolat', 'szoveg' => 'Kapcsolat', 'menun' => array(1, 1)),
 	'karbantarto'=> array('fajl' => 'karbantarto', 'szoveg' => 'Karbantartó', 'menun' => array(1, 1)),
 	'belepes' => array('fajl' => 'belepes', 'szoveg' => 'Belépés/Regisztráció', 'menun' => array(1, 0)),
