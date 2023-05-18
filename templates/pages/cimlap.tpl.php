@@ -5,3 +5,6 @@
 							<p>Üdvözöljük a weboldalon</p>					
 						</div>
 					</section>
+					<video controls>
+					<source src="video.mp4" type="video/mp4">
+					</video>
