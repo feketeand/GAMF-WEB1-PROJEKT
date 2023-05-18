@@ -1,7 +1,5 @@
-<!-- Panellakásokról -->
 <section id="one" class="wrapper style2 spotlights">
     <section>
-        <a href="#" class="image"><img src="images/kep1.jpg" alt="" data-position="center center" /></a>
         <div class="content">
             <div class="inner">
                 <h2>Panellakások</h2>
@@ -15,13 +13,15 @@
         </div>
     </section>
     <section>
-        <a href="#" class="image"><img src="images/kép2.jpg" alt="" data-position="top center" /></a>
         <div class="content">
             <div class="inner">
                 <h2>További cikkek a témában</h2>
                 <ul>
                     <a style="color: black;" href="https://www.origo.hu/gazdasag/20200130-60-eve-adtak-at-az-elso-panelhazat.html">
                         <p>Paneltörténelem Magyarországon</p>
+                    </a>
+                    <a style="color: black;" href="https://lakasmarket.hu/panellakasok-tenyek-es-tevhitek-2021-ben/">
+                        <p>Panellakás tények és tévhitek</p>
                     </a>
                 </ul>
             </div>
