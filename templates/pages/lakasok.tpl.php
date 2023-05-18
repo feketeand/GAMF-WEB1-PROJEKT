@@ -54,7 +54,7 @@
                     <td><?php echo($result[$i][3])?></td>
 					<td><?php echo($result[$i][4])?></td>
 					<td><?php echo($result[$i][5])?></td>
-					<td><a href="alaprajzok.php"><?php echo($result[$i][6])?></a></td>
+					<td><a href="alaprajzok.php" target="_blank"><?php echo($result[$i][6])?></a></td>
 					<td><a href="?oldal=otletek">Lista</a>/
 					<a href="?oldal=otlet">Új</a></td>					
                 </tr><br>                
