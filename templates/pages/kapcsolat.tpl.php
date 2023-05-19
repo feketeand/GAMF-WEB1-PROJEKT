@@ -61,7 +61,7 @@ $gomb = $_POST['gomb'] ?? false;
                             <p class='text-danger' id="hibaM"></p>
                         </div>
                     </div>
-                    <ul class="actions">
+                    <ul class="actions" style="list-style-type: none;">
                         <li><a href="" class="button submit" name="gomb">Üzenet küldése</a></li>
                     </ul>
                 </form>
@@ -76,7 +76,7 @@ $gomb = $_POST['gomb'] ?? false;
                 echo $sikeres;
             } ?>
             <section>
-                <ul class="contact">
+                <ul class="contact" style="list-style-type: none;">
                     <li>
                         <h3>Cím</h3>
                         <span>12345 Somewhere Road #654<br />
@@ -92,7 +92,7 @@ $gomb = $_POST['gomb'] ?? false;
                         <span>(000) 000-0000</span>
                     </li>
                     <li>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10797.321910637262!2d19.021367266803015!3d47.42499898877641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741e79e6a97ce95%3A0xfcfbb1c858b18cc1!2sBudapest%2C%20Budapest%20XXII.%20ker%C3%BClete%2C%201222!5e0!3m2!1shu!2shu!4v1683807481528!5m2!1shu!2shu" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10797.321910637262!2d19.021367266803015!3d47.42499898877641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741e79e6a97ce95%3A0xfcfbb1c858b18cc1!2sBudapest%2C%20Budapest%20XXII.%20ker%C3%BClete%2C%201222!5e0!3m2!1shu!2shu!4v1683807481528!5m2!1shu!2shu" width="600" height="350" data-position="center center" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </li>
                 </ul>
             </section>

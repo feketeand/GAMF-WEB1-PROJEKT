@@ -3,6 +3,7 @@
         <div class="content">
             <div class="inner">
                 <h2>Panellakások</h2>
+                <img src="images/kep4.jpg" data-position="center center" width="490" height="500">
                 <p>A panelház vagy panelépület előre gyártott vasbeton elemekből készült épülettömb.
                     Magassága Magyarországon átlagosan 20-30 méter.
                     Jellemzően a lakótelepek többemeletes lakótömbjeit építették ezzel a technológiával, de épültek ilyen módon

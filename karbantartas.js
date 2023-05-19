@@ -48,9 +48,9 @@ function szobaszamos() {
 
 function init() {
     document.getElementById("ltp_nev").addEventListener("input", lakotelepNev);
-    document.getElementById("ltp_kerulet").addEventListener("input", lakotelepKerulet);
+    /*document.getElementById("ltp_kerulet").addEventListener("input", lakotelepKerulet);
     document.getElementById("leiras").addEventListener("input", leiras);
     document.getElementById("meret").addEventListener("input", meret);
-    document.getElementById("szobaszam").addEventListener("input", szobaszamos);
+    document.getElementById("szobaszam").addEventListener("input", szobaszamos);*/
 }
 document.addEventListener("DOMContentLoaded", init);
