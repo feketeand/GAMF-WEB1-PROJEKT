@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2023. Máj 18. 13:45
--- Kiszolgáló verziója: 8.0.31
--- PHP verzió: 8.0.26
+-- Gép: mysql.omega:3306
+-- Létrehozás ideje: 2023. Máj 21. 22:59
+-- Kiszolgáló verziója: 5.7.40-log
+-- PHP verzió: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -27,15 +28,13 @@ SET time_zone = "+00:00";
 -- Tábla szerkezet ehhez a táblához `felhasznalok`
 --
 
-DROP TABLE IF EXISTS `felhasznalok`;
-CREATE TABLE IF NOT EXISTS `felhasznalok` (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `felhasznalok` (
+  `id` int(10) UNSIGNED NOT NULL,
   `csaladi_nev` varchar(45) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
   `uto_nev` varchar(45) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
   `bejelentkezes` varchar(12) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
-  `jelszo` varchar(40) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+  `jelszo` varchar(40) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `felhasznalok`
@@ -51,14 +50,10 @@ INSERT INTO `felhasznalok` (`id`, `csaladi_nev`, `uto_nev`, `bejelentkezes`, `je
 -- Tábla szerkezet ehhez a táblához `galeria`
 --
 
-DROP TABLE IF EXISTS `galeria`;
-CREATE TABLE IF NOT EXISTS `galeria` (
-  `kepID` int NOT NULL,
-  `otletID` int NOT NULL,
-  `sorszam` int NOT NULL,
-  PRIMARY KEY (`sorszam`),
-  KEY `kepID` (`kepID`),
-  KEY `otletID` (`otletID`)
+CREATE TABLE `galeria` (
+  `kepID` int(11) NOT NULL,
+  `otletID` int(11) NOT NULL,
+  `sorszam` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -67,11 +62,9 @@ CREATE TABLE IF NOT EXISTS `galeria` (
 -- Tábla szerkezet ehhez a táblához `idoszak`
 --
 
-DROP TABLE IF EXISTS `idoszak`;
-CREATE TABLE IF NOT EXISTS `idoszak` (
-  `idoszakID` int NOT NULL,
-  `idoszak` varchar(20) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  PRIMARY KEY (`idoszakID`)
+CREATE TABLE `idoszak` (
+  `idoszakID` int(11) NOT NULL,
+  `idoszak` varchar(20) COLLATE utf8mb4_hungarian_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -80,17 +73,13 @@ CREATE TABLE IF NOT EXISTS `idoszak` (
 -- Tábla szerkezet ehhez a táblához `kepek`
 --
 
-DROP TABLE IF EXISTS `kepek`;
-CREATE TABLE IF NOT EXISTS `kepek` (
-  `kepID` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `kepek` (
+  `kepID` int(11) NOT NULL,
   `kepNev` varchar(10) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `tipusID` int NOT NULL,
-  `felhasznaloID` int NOT NULL,
+  `tipusID` int(11) NOT NULL,
+  `felhasznaloID` int(11) NOT NULL,
   `feltoltDatum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `megjegyzes` text COLLATE utf8mb4_hungarian_ci NOT NULL,
-  PRIMARY KEY (`kepID`),
-  UNIQUE KEY `kepID` (`kepID`),
-  KEY `tipusID` (`tipusID`,`felhasznaloID`)
+  `megjegyzes` text COLLATE utf8mb4_hungarian_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -99,11 +88,9 @@ CREATE TABLE IF NOT EXISTS `kepek` (
 -- Tábla szerkezet ehhez a táblához `keptipus`
 --
 
-DROP TABLE IF EXISTS `keptipus`;
-CREATE TABLE IF NOT EXISTS `keptipus` (
-  `keptipusID` int NOT NULL,
-  `keptipusNev` varchar(10) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  PRIMARY KEY (`keptipusID`)
+CREATE TABLE `keptipus` (
+  `keptipusID` int(11) NOT NULL,
+  `keptipusNev` varchar(10) COLLATE utf8mb4_hungarian_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
@@ -120,17 +107,15 @@ INSERT INTO `keptipus` (`keptipusID`, `keptipusNev`) VALUES
 -- Tábla szerkezet ehhez a táblához `lakastipus`
 --
 
-DROP TABLE IF EXISTS `lakastipus`;
-CREATE TABLE IF NOT EXISTS `lakastipus` (
-  `lakasTipusID` int NOT NULL AUTO_INCREMENT,
-  `meret` int NOT NULL,
-  `szobaszam` int NOT NULL,
+CREATE TABLE `lakastipus` (
+  `lakasTipusID` int(11) NOT NULL,
+  `meret` int(11) NOT NULL,
+  `szobaszam` int(11) NOT NULL,
   `kulonWC` varchar(5) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `ablakosKonyha` varchar(5) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `erkelytipus` varchar(20) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `alaprajzID` int NOT NULL,
-  PRIMARY KEY (`lakasTipusID`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+  `alaprajzID` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `lakastipus`
@@ -146,18 +131,15 @@ INSERT INTO `lakastipus` (`lakasTipusID`, `meret`, `szobaszam`, `kulonWC`, `abla
 -- Tábla szerkezet ehhez a táblához `lakotelep`
 --
 
-DROP TABLE IF EXISTS `lakotelep`;
-CREATE TABLE IF NOT EXISTS `lakotelep` (
-  `lakotelepID` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `lakotelep` (
+  `lakotelepID` int(11) NOT NULL,
   `ltpNev` varchar(50) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `idoszak` varchar(20) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `kerulet` int NOT NULL,
-  `terkepID` int NOT NULL,
-  `leiras` int NOT NULL,
-  `fokepID` int NOT NULL,
-  PRIMARY KEY (`lakotelepID`),
-  KEY `terkepID` (`terkepID`,`fokepID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+  `kerulet` int(11) NOT NULL,
+  `terkepID` int(11) NOT NULL,
+  `leiras` int(11) NOT NULL,
+  `fokepID` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `lakotelep`
@@ -173,14 +155,11 @@ INSERT INTO `lakotelep` (`lakotelepID`, `ltpNev`, `idoszak`, `kerulet`, `terkepI
 -- Tábla szerkezet ehhez a táblához `ltp-lakastipus`
 --
 
-DROP TABLE IF EXISTS `ltp-lakastipus`;
-CREATE TABLE IF NOT EXISTS `ltp-lakastipus` (
-  `lakotelepID` int NOT NULL,
-  `lakastipusID` int NOT NULL,
-  `darab` int NOT NULL,
-  `sorszam` int NOT NULL,
-  PRIMARY KEY (`sorszam`),
-  KEY `lakotelepID` (`lakotelepID`,`lakastipusID`)
+CREATE TABLE `ltp-lakastipus` (
+  `lakotelepID` int(11) NOT NULL,
+  `lakastipusID` int(11) NOT NULL,
+  `darab` int(11) NOT NULL,
+  `sorszam` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -189,18 +168,24 @@ CREATE TABLE IF NOT EXISTS `ltp-lakastipus` (
 -- Tábla szerkezet ehhez a táblához `otlet`
 --
 
-DROP TABLE IF EXISTS `otlet`;
-CREATE TABLE IF NOT EXISTS `otlet` (
-  `otletID` int NOT NULL,
-  `felhasznaloID` int NOT NULL,
-  `lakastipusID` int NOT NULL,
+CREATE TABLE `otlet` (
+  `otletID` int(11) NOT NULL,
+  `felhasznaloID` varchar(11) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `lakastipusID` int(11) NOT NULL,
   `megnevezes` varchar(50) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `alaprajzValt` tinyint(1) NOT NULL,
-  `alaprajzID` int NOT NULL,
-  `leiras` text COLLATE utf8mb4_hungarian_ci NOT NULL,
-  PRIMARY KEY (`otletID`),
-  KEY `felhasznaloID` (`felhasznaloID`,`alaprajzID`)
+  `alaprajzID` int(11) NOT NULL,
+  `leiras` text COLLATE utf8mb4_hungarian_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `otlet`
+--
+
+INSERT INTO `otlet` (`otletID`, `felhasznaloID`, `lakastipusID`, `megnevezes`, `alaprajzValt`, `alaprajzID`, `leiras`) VALUES
+(1, '0', 2, 'alakítás', 0, 0, 'szétszedtük és összeraktuk'),
+(2, '0', 2, 'újítás', 0, 0, 'kiütöttük a falat'),
+(3, 'baba', 2, 'alakítás', 0, 0, 'szépítettül');
 
 -- --------------------------------------------------------
 
@@ -208,12 +193,9 @@ CREATE TABLE IF NOT EXISTS `otlet` (
 -- Tábla szerkezet ehhez a táblához `terkep`
 --
 
-DROP TABLE IF EXISTS `terkep`;
-CREATE TABLE IF NOT EXISTS `terkep` (
-  `terkepID` int NOT NULL,
-  `terkepLink` varchar(40) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  PRIMARY KEY (`terkepID`),
-  UNIQUE KEY `terkepID` (`terkepID`)
+CREATE TABLE `terkep` (
+  `terkepID` int(11) NOT NULL,
+  `terkepLink` varchar(40) COLLATE utf8mb4_hungarian_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -222,14 +204,12 @@ CREATE TABLE IF NOT EXISTS `terkep` (
 -- Tábla szerkezet ehhez a táblához `uzenetek`
 --
 
-DROP TABLE IF EXISTS `uzenetek`;
-CREATE TABLE IF NOT EXISTS `uzenetek` (
-  `uzenetID` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `uzenetek` (
+  `uzenetID` int(11) NOT NULL,
   `felhasznalo` varchar(16) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `datum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `iras` text COLLATE utf8mb4_hungarian_ci NOT NULL,
-  PRIMARY KEY (`uzenetID`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+  `iras` text COLLATE utf8mb4_hungarian_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `uzenetek`
@@ -245,7 +225,9 @@ INSERT INTO `uzenetek` (`uzenetID`, `felhasznalo`, `datum`, `iras`) VALUES
 (7, 'baba', '0000-00-00 00:00:00', 'sfghsfgsf'),
 (8, 'baba', '2023-05-18 10:28:02', 'asdfasd'),
 (9, 'baba', '2023-05-18 12:40:12', 'sdfghdf'),
-(10, 'vendeg', '2023-05-18 12:47:29', 'uzenet');
+(10, 'vendeg', '2023-05-18 12:47:29', 'uzenet'),
+(11, 'baba', '2023-05-20 04:29:42', 'dhagdsf'),
+(12, 'vendeg', '2023-05-20 04:49:28', '');
 
 -- --------------------------------------------------------
 
@@ -253,14 +235,10 @@ INSERT INTO `uzenetek` (`uzenetID`, `felhasznalo`, `datum`, `iras`) VALUES
 -- Tábla szerkezet ehhez a táblához `varos`
 --
 
-DROP TABLE IF EXISTS `varos`;
-CREATE TABLE IF NOT EXISTS `varos` (
-  `irsz` int NOT NULL,
-  `varosNev` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_hungarian_ci DEFAULT NULL,
-  `kerulet` int NOT NULL,
-  PRIMARY KEY (`irsz`),
-  UNIQUE KEY `irsz_UNIQUE` (`irsz`),
-  KEY `kerulet` (`kerulet`)
+CREATE TABLE `varos` (
+  `irsz` int(11) NOT NULL,
+  `varosNev` varchar(45) CHARACTER SET utf8 COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `kerulet` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
@@ -272,6 +250,132 @@ INSERT INTO `varos` (`irsz`, `varosNev`, `kerulet`) VALUES
 (1222, 'Budapest', 22),
 (1223, 'Budapest', 22),
 (1224, 'Budapest', 22);
+
+--
+-- Indexek a kiírt táblákhoz
+--
+
+--
+-- A tábla indexei `felhasznalok`
+--
+ALTER TABLE `felhasznalok`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `galeria`
+--
+ALTER TABLE `galeria`
+  ADD PRIMARY KEY (`sorszam`),
+  ADD KEY `kepID` (`kepID`),
+  ADD KEY `otletID` (`otletID`);
+
+--
+-- A tábla indexei `idoszak`
+--
+ALTER TABLE `idoszak`
+  ADD PRIMARY KEY (`idoszakID`);
+
+--
+-- A tábla indexei `kepek`
+--
+ALTER TABLE `kepek`
+  ADD PRIMARY KEY (`kepID`),
+  ADD UNIQUE KEY `kepID` (`kepID`),
+  ADD KEY `tipusID` (`tipusID`,`felhasznaloID`);
+
+--
+-- A tábla indexei `keptipus`
+--
+ALTER TABLE `keptipus`
+  ADD PRIMARY KEY (`keptipusID`);
+
+--
+-- A tábla indexei `lakastipus`
+--
+ALTER TABLE `lakastipus`
+  ADD PRIMARY KEY (`lakasTipusID`);
+
+--
+-- A tábla indexei `lakotelep`
+--
+ALTER TABLE `lakotelep`
+  ADD PRIMARY KEY (`lakotelepID`),
+  ADD KEY `terkepID` (`terkepID`,`fokepID`);
+
+--
+-- A tábla indexei `ltp-lakastipus`
+--
+ALTER TABLE `ltp-lakastipus`
+  ADD PRIMARY KEY (`sorszam`),
+  ADD KEY `lakotelepID` (`lakotelepID`,`lakastipusID`);
+
+--
+-- A tábla indexei `otlet`
+--
+ALTER TABLE `otlet`
+  ADD PRIMARY KEY (`otletID`),
+  ADD KEY `felhasznaloID` (`felhasznaloID`,`alaprajzID`);
+
+--
+-- A tábla indexei `terkep`
+--
+ALTER TABLE `terkep`
+  ADD PRIMARY KEY (`terkepID`),
+  ADD UNIQUE KEY `terkepID` (`terkepID`);
+
+--
+-- A tábla indexei `uzenetek`
+--
+ALTER TABLE `uzenetek`
+  ADD PRIMARY KEY (`uzenetID`);
+
+--
+-- A tábla indexei `varos`
+--
+ALTER TABLE `varos`
+  ADD PRIMARY KEY (`irsz`),
+  ADD UNIQUE KEY `irsz_UNIQUE` (`irsz`),
+  ADD KEY `kerulet` (`kerulet`);
+
+--
+-- A kiírt táblák AUTO_INCREMENT értéke
+--
+
+--
+-- AUTO_INCREMENT a táblához `felhasznalok`
+--
+ALTER TABLE `felhasznalok`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT a táblához `kepek`
+--
+ALTER TABLE `kepek`
+  MODIFY `kepID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT a táblához `lakastipus`
+--
+ALTER TABLE `lakastipus`
+  MODIFY `lakasTipusID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT a táblához `lakotelep`
+--
+ALTER TABLE `lakotelep`
+  MODIFY `lakotelepID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT a táblához `otlet`
+--
+ALTER TABLE `otlet`
+  MODIFY `otletID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT a táblához `uzenetek`
+--
+ALTER TABLE `uzenetek`
+  MODIFY `uzenetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
