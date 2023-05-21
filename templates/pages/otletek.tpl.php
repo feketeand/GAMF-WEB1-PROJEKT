@@ -13,7 +13,7 @@
 		echo $result[$i][0];
         }
         // Kapcsolódás
-        $dbh = new PDO('mysql:host=localhost;dbname=paneldb', 'root', '',
+        $dbh = new PDO('mysql:host=localhost;dbname=paneldb', $dbname, $dbjelszo,
                         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 						
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
@@ -45,10 +45,10 @@
                 </tr>				
                 <?php for($i=0;$i<count($res);$i++){?>
 				<tr>
-                    <td><?php echo($res[$i][0])?></td>
-                    <td><?php echo($res[$i][1])?></td>
-                    <td><?php echo($res[$i][3])?></td>
-                    <td><?php echo($res[$i][5])?></td>									
+                    <td><?php echo($res[$i][otletID])?></td>
+                    <td><?php echo($res[$i][felhasznaloID])?></td>
+                    <td><?php echo($res[$i][megnevezes])?></td>
+                    <td><?php echo($res[$i][leiras])?></td>									
 					<td><a href="alaprajzok.php"  target="_blank"><?php echo($res[$i][4])?></a></td>												
                 </tr><br>                
                 <?php } ?>

@@ -6,7 +6,7 @@
 
 	try {
         // Kapcsolódás
-        $dbh = new PDO('mysql:host=localhost;dbname=paneldb', 'root', '',
+        $dbh = new PDO('mysql:host=localhost;dbname=paneldb', $dbname, $dbjelszo,
                         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 						
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
