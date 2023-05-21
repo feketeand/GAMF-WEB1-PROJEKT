@@ -14,6 +14,9 @@ $lablec = array(
 	'oldal' => 'Panelprojekt'
 );
 
+$dbname='root';
+$dbjelszo='';
+
 $oldalak = array(	
 	'/' => array('fajl' => 'cimlap', 'szoveg' => 'Kezdőlap', 'menun' => array(1, 1)),
 	'panellakasokrol' => array('fajl' => 'panellakasokrol', 'szoveg' => 'Panellakásokról általában', 'menun' => array(1, 1)),
